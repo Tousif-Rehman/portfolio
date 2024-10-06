@@ -1,15 +1,7 @@
 function handleUserVisit() {
     const lastVisit = localStorage.getItem("lastVisit");
-    const visitCount = localStorage.getItem("visitCount") || 0;
     const currentTime = new Date().getTime();
     const oneDayInMs = 24 * 60 * 60 * 1000;
-
-    // Increment the visit counter
-    const updatedVisitCount = parseInt(visitCount) + 1;
-    localStorage.setItem("visitCount", updatedVisitCount);
-    
-    // Display the visit count in the counter
-    document.getElementById("visit-count").innerText = updatedVisitCount;
 
     let message = ""; // Variable to hold the message for the popup
 
@@ -36,6 +28,7 @@ function handleUserVisit() {
     document.getElementById("popup-message").innerHTML = message;
     document.getElementById("popup").style.display = "block"; // Display the popup
 }
+
 
 // Close popup functionality
 document.addEventListener('DOMContentLoaded', () => {
