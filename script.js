@@ -12,7 +12,7 @@ function handleUserVisit() {
     } else {
         // Returning visitor
         const lastVisitTime = parseInt(lastVisit);
-        
+
         // Check if it's been more than a week
         if (currentTime - lastVisitTime > oneDayInMs) {
             message = "It's been a while!<br>Welcome back!";
@@ -29,16 +29,36 @@ function handleUserVisit() {
     document.getElementById("popup").style.display = "block"; // Display the popup
 }
 
-
-// Close popup functionality
+// Close popup functionality when user clicks anywhere on the website
 document.addEventListener('DOMContentLoaded', () => {
     handleUserVisit();
 
     // Close the popup when the close button is clicked
     document.getElementById("closePopup").onclick = function() {
-        document.getElementById("popup").style.display = "none";
+        hidePopup(); // Call the hide function
+    }
+
+    // Close the popup when the user clicks anywhere on the document
+    document.onclick = function(event) {
+        const popup = document.getElementById("popup");
+        const closeButton = document.getElementById("closePopup");
+
+        // Check if the clicked target is not the popup or the close button
+        if (popup.style.display === "block" && event.target !== popup && event.target !== closeButton) {
+            hidePopup(); // Call the hide function
+        }
     }
 });
+
+// Function to hide the popup
+function hidePopup() {
+    const popup = document.getElementById("popup");
+    popup.classList.add('hide'); // Add hide class to trigger fade-out
+}
+
+
+
+
 
 // Background animation for color boxes
 const bganimation = document.getElementById('bganimation');

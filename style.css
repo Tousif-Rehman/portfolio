@@ -31,7 +31,7 @@ section {
 .content {
     position: relative; 
     z-index: 2; 
-    padding: 2px; 
+    padding: .2px; 
 }
 
 
@@ -596,26 +596,35 @@ body {
 }
 
 .popup {
-    display: none;
+    display: none; /* Hidden by default */
     position: fixed;
     bottom: 30px;
     right: 10px;
     z-index: 1001;
+    opacity: 1; /* Fully visible */
+    transition: opacity 0.5s ease; /* Smooth fade-in and fade-out */
 }
 
 .popup-content {
-    background-color: whitesmoke;
+    background: var(--text-color);
     padding: 15px;
     border-radius: 10px;
     font-family: 'Times New Roman', Times, serif;
-    width: 300px;
+    width: 300px; /* Fixed width */
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     color: black;
     font-size: 16px;
     font-weight: 600;
 }
 
+/* Class for hiding the popup */
+.popup.hide {
+    opacity: 0; /* Fades out */
+    pointer-events: none; /* Disable interaction */
+}
+
+/* Close button styles */
 .close {
     color: rgb(45, 44, 44);
     float: right;
