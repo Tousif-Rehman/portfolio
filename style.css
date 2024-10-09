@@ -40,12 +40,16 @@ section {
     top: 0;
     left: 0;
     width: 100%;
-    background: #03045e;
+    background: #1e1e23;
     padding: 2rem 9%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+}
+
+.header.sticky {
+    border-bottom: .1 rem solid rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -57,7 +61,7 @@ section {
 
 .navbar a {
     font-size: 1.7rem;
-    font-weight: 600;
+    font-weight: 400;
     color: var(--text-color);
     margin-left: 4rem;
     transition: .3s;
@@ -222,7 +226,7 @@ span
 }
 
 .education-col .education-box {
-    border-left: .2rem dashed var(--main-color);
+    border-left: .2rem solid var(--main-color);
 }
 
 .education-box .education-content {
@@ -545,7 +549,7 @@ span
     padding-left: 40px;
     padding-right: 20px;
     padding-bottom: 10px;
-    background: #03045e;
+    background: #1e1e23;
 }
 
 .footer-text p {
@@ -572,15 +576,6 @@ span
     color: var(--second-bg-color);
 }
 
-
-
-
-
-
-
-
-
-
 body {
     color: white;
     background: black;
@@ -594,7 +589,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(20, 1fr);
+    grid-template-rows: repeat(30, 1fr);
     background: #1d1d1d;
     filter: saturate(2);
     overflow: hidden;
@@ -627,6 +622,33 @@ body {
     }
     100% {
         top: 120%;
+    }
+}
+
+    
+
+@media (max-width: 900px) {
+
+    .bganimation {
+        grid-template-columns: repeat(15, 1fr);
+        grid-template-rows: repeat(40, 1fr);
+    }
+    
+    .colorbox {
+        margin: 1px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .bganimation {
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(60, 1fr);
+    }
+
+    .backgroundanim {
+        height: 40px;
+        filter: blur(40px);
     }
 }
 
@@ -674,4 +696,85 @@ body {
 .close:focus {
     color: rgb(0, 0, 0);
     text-decoration: none;
+}
+
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px) {
+    .header {
+        padding: 2rem 3%;
+    }
+
+    section {
+        padding: 10rem 3% 2rem;
+    }
+
+    .footer {
+        padding: 2rem 3%;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: #1e1e23;
+        border-top: .1rem solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    .home {
+        flex-direction: column;
+    }
+
+    .home-content h3 {
+        font-size: 5rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+        padding-top: 20px;
+    }
+
+    .home-img .glowing-circle {
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+        padding-top: 30px;
+    }
+
+    .home-img .glowing-circle {
+        padding-top: 70px;
+    }
+
 }
