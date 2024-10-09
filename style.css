@@ -226,7 +226,7 @@ span
 }
 
 .education-col .education-box {
-    border-left: .2rem solid var(--main-color);
+    border-left: .2rem dotted var(--main-color);
 }
 
 .education-box .education-content {
@@ -625,33 +625,6 @@ body {
     }
 }
 
-    
-
-@media (max-width: 900px) {
-
-    .bganimation {
-        grid-template-columns: repeat(15, 1fr);
-        grid-template-rows: repeat(40, 1fr);
-    }
-    
-    .colorbox {
-        margin: 1px;
-    }
-}
-
-@media (max-width: 600px) {
-
-    .bganimation {
-        grid-template-columns: repeat(10, 1fr);
-        grid-template-rows: repeat(60, 1fr);
-    }
-
-    .backgroundanim {
-        height: 40px;
-        filter: blur(40px);
-    }
-}
-
 .popup {
     display: none; /* Hidden by default */
     position: fixed;
@@ -699,82 +672,187 @@ body {
 }
 
 
-@media (max-width: 1200px) {
-    html {
-        font-size: 55%;
+/* Media Queries for Responsive Design */
+
+/* For screens smaller than 1200px */
+@media screen and (max-width: 1200px) {
+    .home-content h1 {
+        font-size: 4rem; /* Scale down the heading size */
+    }
+
+    .home-content h3 {
+        font-size: 2rem; /* Scale down the subheading size */
+    }
+
+    .project-container {
+        padding: 8px;
     }
 }
 
-@media (max-width: 991px) {
+/* For screens smaller than 992px */
+@media screen and (max-width: 992px) {
+    .project-container {
+        grid-template-columns: repeat(2, 1fr); /* Display 2 project cards in one row */
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr); /* Display 3 skill boxes in one row */
+    }
+
+    .home-content {
+        flex-basis: 60%; /* Adjust home content width */
+    }
+}
+
+/* For screens smaller than 768px */
+@media screen and (max-width: 768px) {
     .header {
-        padding: 2rem 3%;
+        padding: 1.5rem 5%; /* Reduce padding for the header */
     }
 
-    section {
-        padding: 10rem 3% 2rem;
+    .home {
+        flex-direction: column; /* Stack the content vertically */
+        text-align: center; /* Center align the text */
     }
 
-    .footer {
-        padding: 2rem 3%;
+    .home-content h1 {
+        font-size: 3.5rem; /* Further scale down the heading size */
     }
-}
 
-@media (max-width: 768px) {
+    .home-content h3 {
+        font-size: 1.8rem; /* Further scale down the subheading size */
+    }
+
+    .home-img img {
+        max-width: 300px; /* Adjust image size for smaller screens */
+    }
+
+    .glowing-circle .image {
+        top: 15px; /* Adjusted from -60px to 0 to lower the circle */
+    }
+
+    /* Navbar adjustments */
     #menu-icon {
-        display: block;
+        display: block; /* Show the menu icon for mobile screens */
     }
 
     .navbar {
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        padding: 1rem 3%;
-        background: #1e1e23;
-        border-top: .1rem solid rgba(0, 0, 0, 0.2);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
-        display: none;
+        background-color: #1e1e23;
+        flex-direction: column;
+        padding: 1rem 0;
     }
 
     .navbar.active {
-        display: block;
+        display: flex; /* Navbar shows on mobile when active */
     }
 
-    .navbar a {
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
+    .project-container {
+        grid-template-columns: repeat(2, 1fr); /* Adjust to a single column on small screens */
+        padding: 0; /* Remove the left padding */
+        gap: 1.5rem; /* Reduce the gap between cards */
     }
 
-    .home {
-        flex-direction: column;
-    }
-
-    .home-content h3 {
-        font-size: 5rem;
-    }
-
-    .home-img img {
-        width: 70vw;
-        margin-top: 4rem;
-        padding-top: 20px;
-    }
-
-    .home-img .glowing-circle {
-        padding-top: 30px;
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* Display 2 skill boxes per row */
     }
 }
 
-@media (max-width: 600px) {
-
-    .home-img img {
-        width: 70vw;
-        margin-top: 4rem;
-        padding-top: 30px;
+/* For screens smaller than 576px */
+@media screen and (max-width: 576px) {
+    section {
+        padding: 8rem 5%; /* Reduce section padding */
     }
 
-    .home-img .glowing-circle {
-        padding-top: 70px;
+    .navbar a {
+        font-size: 1.4rem;
+        padding-bottom: 5px;
     }
 
+    .home-content h1 {
+        font-size: 3rem; /* Scale down the heading size for smaller screens */
+    }
+
+    .home-content h3 {
+        font-size: 2rem; /* Scale down the subheading size */
+    }
+
+    .project {
+        padding: 0;
+    }
+
+    .education {
+        padding-bottom: 20px;
+    }
+
+    .project-container {
+        grid-template-columns: 2fr; /* Keep showing 1 project card per row */
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* Show 1 skill box per row */
+    }
+
+    .card {
+        height: 170px;
+    }
+
+    .card__tags {
+        padding: 0;
+    }
+    
+    .tag {
+        padding-left: 8px;
+    }
+
+    .popup-content {
+        width: 200px; /* Reduce the width for mobile screens */
+        padding: 10px; /* Adjust padding */
+        font-size: 14px; /* Decrease font size for better readability */
+        font-weight: 610;
+    }
+
+    .close {
+        font-size: 20px; /* Adjust the close button size */
+    }
+
+    .contact {
+        padding-bottom: 0;
+    }
+
+
+    .con-heading, .pr-heading {
+        font-size: 3.5rem; /* Decrease heading font size */
+    }
+
+    .contact form .input-box input,
+    .contact form textarea {
+        width: 100%; /* Extend input boxes to full width */
+    }
+
+    .contact form .input-box input {
+        width: 100%; /* Ensure inputs occupy full width on mobile */
+    }
+
+    .contact form .btn {
+        padding: 1rem 2rem; /* Slight adjustment to the button padding */
+    }
+
+    .footer-text p {
+        font-size: 1.2rem; /* Decrease font size for mobile */
+        padding-left: 23px;
+    }
+
+    .footer-icontop a {
+        padding: 0.5rem; /* Adjust padding for smaller icons */
+        border-radius: 0.5rem; /* Adjust border radius */
+    }
+
+    .footer-icontop a i {
+        font-size: 1.8rem; /* Reduce icon size */
+    }
 }
