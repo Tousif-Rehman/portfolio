@@ -109,18 +109,25 @@ function hidePopup() {
     popup.classList.add('hide');
 }
 
-// SMTP.js (Commented Out)
-/*
+// DOMContentLoaded to ensure the DOM is fully loaded before accessing elements
 document.addEventListener('DOMContentLoaded', function() {
+    
+    // Element declarations
     const form = document.querySelector("form");
-    const fullname = document.getElementById("fullname");
+    const fullname = document.getElementById("name"); // corrected ID
     const email = document.getElementById("email");
     const phone = document.getElementById("phone");
     const subject = document.getElementById("subject");
     const message = document.getElementById("message");
 
+    // Function to send email using SMTP.js
     function sendEmail() {
-        const bodyMessage = `Full Name: ${fullname.value}<br> Email: ${email.value}<br> Phone Number: ${phone.value}<br> Message: ${message.value}`;
+        const bodyMessage = `
+            Full Name: ${fullname.value}<br>
+            Email: ${email.value}<br>
+            Phone Number: ${phone.value}<br>
+            Message: ${message.value}
+        `;
 
         Email.send({
             Host: "smtp.elasticemail.com",
@@ -137,26 +144,40 @@ document.addEventListener('DOMContentLoaded', function() {
                     text: "Message sent successfully!",
                     icon: "success"
                 });
+            } else {
+                Swal.fire({
+                    title: "Error!",
+                    text: "There was an issue sending the message.",
+                    icon: "error"
+                });
             }
+        }).catch(error => {
+            Swal.fire({
+                title: "Error!",
+                text: "Failed to send message. Please try again later.",
+                icon: "error"
+            });
         });
     }
 
+    // Event listener for form submission
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         sendEmail();
     });
 });
-*/
+
 
 // Scroll Reveal.js Initialization
-// ScrollReveal({ 
-//     // reset: true,
-//     distance: '80px',
-//     duration: 1000,
-//     delay: 200
-// });
 
-// ScrollReveal().reveal('.home-content, .heading, .ed-heading, .pr-heading, .con-heading', { origin: 'top' });
-// ScrollReveal().reveal('.home-img, .glowing-circle, .education-box, .project-box, .contact form ', { origin: 'bottom' });
+ScrollReveal({ 
+    // reset: true,
+    distance: '80px',
+    duration: 1000,
+    delay: 200
+});
+
+ScrollReveal().reveal('.home-content, .heading, .ed-heading, .pr-heading, .con-heading', { origin: 'top' });
+ScrollReveal().reveal('.home-img, .glowing-circle, .education-box, .project-box, .contact form ', { origin: 'bottom' });
 // ScrollReveal().reveal('.sk-box, .home-content p', { origin: 'right' });
-// ScrollReveal().reveal('.home-content h1, .card-box', { origin: 'left' }); 
+ScrollReveal().reveal('.home-content h1, .card-box', { origin: 'left' }); 
