@@ -32,6 +32,18 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 };
 
+ScrollReveal({ 
+    // reset: true,
+    distance: '80px',
+    duration: 1000,
+    delay: 200
+});
+
+ScrollReveal().reveal('.home-content, .heading, .ed-heading, .pr-heading, .con-heading', { origin: 'top' });
+ScrollReveal().reveal('.home-img, .glowing-circle, .education-box, .project-box, .contact form ', { origin: 'bottom' });
+ScrollReveal().reveal('.sk-box, .home-content p', { origin: 'right' });
+ScrollReveal().reveal('.home-content h1, .card-box', { origin: 'left' });
+
 
 function handleUserVisit() {
     const lastVisit = localStorage.getItem("lastVisit");
@@ -116,3 +128,44 @@ const typed = new Typed('.multiple-text', {
     backDelay: 1000,
     loop: true
 });
+
+
+//smtp js
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     const form = document.querySelector("form");
+//     const fullname = document.getElementById("fullname");
+//     const email = document.getElementById("email");
+//     const phone = document.getElementById("phone");
+//     const subject = document.getElementById("subject");
+//     const mess = document.getElementById("message");
+
+//     function sendEmail() {
+//         const bodymessage = `Full Name: ${fullname.value}<br> Email: ${email.value}<br> Phone Number: ${phone.value}<br> Message: ${mess.value}`;
+
+//         Email.send({
+//             Host : "smtp.elasticemail.com",
+//             Username : "tousifrehman.ise.rymec@gmail.com",
+//             Password : "3FC85BE830FA894E674EF506D53B1A2BCFBD",
+//             To : 'tousifrehman.ise.rymec@gmail.com',
+//             From : "tousifrehman.ise.rymec@gmail.com",
+//             Subject : subject.value,
+//             Body : bodymessage
+//         }).then(
+//             message => {
+//                 if (message == "OK") {
+//                     Swal.fire({
+//                         title: "Success!",
+//                         text: "Message sent successfully!",
+//                         icon: "success"
+//                     });
+//                 }
+//             }
+//         );
+//     }
+
+//     form.addEventListener("submit", (e) => {
+//         e.preventDefault();
+//         sendEmail();
+//     });
+// });  

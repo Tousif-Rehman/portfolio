@@ -7,7 +7,6 @@
     <title>Md Tousif Rehman</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -16,7 +15,7 @@
     </div>
     
     <header class="header">
-        <a href="#" class="logo"><span class="sp">T</span>ousif <span>R</span>ehman.</a>
+        <a href="#" class="logo"><span>R</span>ehman.</a>
 
         <i class="bx bx-menu" id="menu-icon"></i>
 
@@ -67,7 +66,7 @@
                                 <h3>High School</h3>
                                 <p>10th, Basavarajeshwari Public School, Ballari</p><br><br>
 
-                                <div class="grades">Percentage : 77.83%%</div>
+                                <div class="grades">Percentage : 77.83%</div>
                             </div>
                         </div>
 
@@ -162,7 +161,7 @@
         </section>
 
         <section class="project" id="project">
-            <h2 class="pr-heading" id="pr-heading"><span>P</span>rojects</h2>
+            <h2 class="pr-heading" id="pr-heading"><span>My </span>Projects</h2>
 
             <div class="project-container">
                 <div class="project-box">
@@ -196,16 +195,16 @@
 
         <section class="contact" id="contact">
             <h2 class="con-heading">Contact <span>Me!</span></h2>
-                <form action="#" class="contact-form">
+                <form action="#" id="form" class="contact-form">
                     <div class="input-box">
-                        <input type="text" placeholder="Full Name">
-                        <input type="email" placeholder="Email Address">
+                        <input type="text" id="name" placeholder="Full Name">
+                        <input type="email" id="email" placeholder="Email Address">
                     </div>
                     <div class="input-box">
-                        <input type="number" placeholder="Phone Number">
-                        <input type="email" placeholder="Email Subject">
+                        <input type="number" id="phone" placeholder="Phone Number">
+                        <input type="text" id="subject" placeholder="Email Subject">
                     </div>
-                    <textarea name="" id="" cols="30" rows="5" placeholder="Your Message"></textarea>
+                    <textarea name="" id="message" cols="30" rows="5" placeholder="Your Message"></textarea>
                     <input type="submit" value="Send Message" class="btn">
                 </form>
         </section>
@@ -229,5 +228,9 @@
         </footer>
     </div>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
 </body>
 </html>
