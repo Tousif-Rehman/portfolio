@@ -40,6 +40,7 @@ function toggleMenu() {
 }
 
 // Handle Scroll for Sticky Header and Active Section Highlight
+// Handle Scroll for Sticky Header and Active Section Highlight
 function handleScroll() {
     const top = window.scrollY;
 
@@ -59,10 +60,19 @@ function handleScroll() {
     const header = document.querySelector('header');
     header.classList.toggle('sticky', window.scrollY > 100);
 
-    // Remove active classes when scrolling
+    // Remove toggle icon and navbar when scrolling
     menuIcon.classList.remove('bx-x');
     navbar.classList.remove('active');
 }
+
+// Add click event listener to nav links
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menuIcon.classList.remove('bx-x');
+        navbar.classList.remove('active');
+    });
+});
+
 
 // Handle User Visit and Display Popup
 function handleUserVisit() {
