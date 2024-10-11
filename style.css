@@ -402,10 +402,6 @@ span
     box-shadow: 0 0 2rem var(--main-color);
 }
 
-
-
-
-
 .project {
     padding: 4rem 0;
     text-align: center;
@@ -510,34 +506,67 @@ span
     margin-bottom: 3rem;
 }
 
-.contact form .input-box {
+form .input-box {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.contact form .input-box input,
-.contact form textarea {
+.input-box .input-field {
+    width: 48.5%;
+}
+
+.field .item {
     width: 100%;
-    padding: 1.5rem;
-    font-size: 1.6rem;
+    padding: 18px;
+    border: 2px solid var(--main-color);
+    border-radius: 6px;
+    font-size: 16px;
+    margin: 12px 0;
+}
+
+.field.error .item {
+    border-color: red;
+}
+
+.field .item::placeholder {
+    color: rgba(0, 0, 0, 0.774);
+}
+
+.field .error-txt {
+    font-size: 14.5px;
+    color: red;
+    text-align: left;
+    margin: -5px 0 10px;
+    padding-left: 2px;
+    display: none;
+}
+
+.field.error .error-txt {
+    display: block;
+}
+
+form .textarea-field .error-txt {
+    margin-top: -10px;
+}
+
+form button {
+    padding: 12px 32px;
+    background: var(--main-color);
+    border-radius: 35px;
+    align-items: center;
+    box-shadow: none;
+    font-size: 16px;
     color: var(--bg-color);
-    background: #ffffff;
-    border-radius: .8rem;
-    margin: .7rem 0;
-}
-
-.contact form .input-box input {
-    width: 49%;
-}
-
-.contact form textarea {
-    resize: none;
-}
-
-.contact form .btn {
-    margin-top: 2rem;
+    letter-spacing: 1px;
+    font-weight: 650;
     cursor: pointer;
+    margin-top: 20px;
+    transition: .5s ease;
+}
+
+form button:hover {
+    box-shadow: 0 0 3rem var(--main-color);
 }
 
 .footer {
@@ -829,17 +858,23 @@ body {
         font-size: 3.5rem; /* Decrease heading font size */
     }
 
-    .contact form .input-box input,
-    .contact form textarea {
-        width: 100%; /* Extend input boxes to full width */
+    form .input-box {
+        flex-direction: column;
     }
 
-    .contact form .input-box input {
-        width: 100%; /* Ensure inputs occupy full width on mobile */
+    .input-box .input-field {
+        width: 100%;
+        margin-bottom: 15px;
     }
 
-    .contact form .btn {
-        padding: 1rem 2rem; /* Slight adjustment to the button padding */
+    .field .item {
+        font-size: 14px;
+        padding: 14px;
+    }
+
+    form button {
+        font-size: 14px;
+        padding: 10px 20px;
     }
 
     .footer-text p {

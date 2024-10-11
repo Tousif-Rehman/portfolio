@@ -93,15 +93,27 @@ function handleUserVisit() {
 // Setup Close Events for Popup
 function setupPopupCloseEvents() {
     const closeButton = document.getElementById("closePopup");
+
+    // Close popup when close button is clicked
     closeButton.onclick = hidePopup;
 
+    // Close popup when clicking outside of it
     document.onclick = (event) => {
         const popup = document.getElementById("popup");
         if (popup.style.display === "block" && event.target !== popup && event.target !== closeButton) {
             hidePopup();
         }
     };
+
+    // Close popup when user scrolls
+    window.onscroll = () => {
+        const popup = document.getElementById("popup");
+        if (popup.style.display === "block") {
+            hidePopup();
+        }
+    };
 }
+
 
 // Hide Popup
 function hidePopup() {
@@ -130,9 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
 
         Email.send({
-            Host: "smtp.elasticemail.com",
-            Username: "tousifrehman.ise.rymec@gmail.com",
-            Password: "3FC85BE830FA894E674EF506D53B1A2BCFBD",
+            SecureToken : "a38c08b7-64f4-4493-8a44-e3650b38981c",
             To: 'tousifrehman.ise.rymec@gmail.com',
             From: "tousifrehman.ise.rymec@gmail.com",
             Subject: subject.value,
@@ -147,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 Swal.fire({
                     title: "Error!",
-                    text: "There was an issue sending the message.",
+                    text: "Failed to send message. Please try again later.",
                     icon: "error"
                 });
             }
@@ -160,10 +170,95 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function checkInputs() {
+        const items = document.querySelectorAll(".item");
+
+        for (const item of items) {
+            if (item.value == "") {
+                item.classList.add("error");
+                item.parentElement.classList.add("error");
+            }
+
+            if (items[1].value != "") {
+                checkEmail();
+            }
+
+            if (items[2].value !== "") {
+                checkNumber();
+            }
+
+            items[1].addEventListener("keyup", () => {
+                checkEmail();
+            });
+
+            items[2].addEventListener("keyup", () => {
+                checkNumber();
+            });
+
+            item.addEventListener("keyup", () => {
+                if (item.value != "") {
+                    item.classList.remove("error");
+                    item.parentElement.classList.remove("error");
+                }
+                else {
+                    item.classList.add("error");
+                    item.parentElement.classList.add("error");
+                }
+            });
+        }
+    }
+
+    function checkEmail() {
+        const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/;
+        const errorTxtEmail = document.querySelector(".error-txt.email");
+
+        if (!email.value.match(emailRegex)) {
+            email.classList.add("error");
+            email.parentElement.classList.add("error");
+
+            if (email.value != "") {
+                errorTxtEmail.innerText = "Enter a valid email address";
+            }
+            else {
+                errorTxtEmail.innerText = "Email address can't be blank!";
+            }
+        }
+        else {
+            email.classList.remove("error");
+            email.parentElement.classList.remove("error");
+        }
+    }
+
+    function checkNumber() {
+        const phoneRegex = /^[0-9]{10}$/; // Example regex for 10-digit phone numbers
+        const errorTxtPhone = document.querySelector(".error-txt.phone");
+
+        if (!phone.value.match(phoneRegex)) {
+            phone.classList.add("error");
+            phone.parentElement.classList.add("error");
+
+            if (phone.value !== "") {
+                errorTxtPhone.innerText = "Enter a valid phone number (10 digits)";
+            } else {
+                errorTxtPhone.innerText = "Phone number can't be blank!";
+            }
+        } else {
+            phone.classList.remove("error");
+            phone.parentElement.classList.remove("error");
+        }
+    }
+
     // Event listener for form submission
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        sendEmail();
+        checkInputs();
+
+        if (!fullname.classList.contains("error") && !email.classList.contains("error") && !phone.classList.contains("error") && !subject.classList.contains("error") && !message.classList.contains("error")) {
+            sendEmail();
+
+            form.reset();
+            return false;
+        }
     });
 });
 
@@ -178,6 +273,5 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal('.home-content, .heading, .ed-heading, .pr-heading, .con-heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .glowing-circle, .education-box, .project-box, .contact form ', { origin: 'bottom' });
-// ScrollReveal().reveal('.sk-box, .home-content p', { origin: 'right' });
+ScrollReveal().reveal('.home-img, .glowing-circle, .education-box, .project-box, .contact form, .skills-grid', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .card-box', { origin: 'left' }); 

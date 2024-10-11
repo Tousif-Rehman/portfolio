@@ -194,21 +194,35 @@
 
         <section class="contact" id="contact">
             <h2 class="con-heading">Contact <span>Me!</span></h2>
-                <form action="#" id="form" class="contact-form">
+                <form action="#" class="contact-form">
                     <div class="input-box">
-                        <input type="text" id="name" placeholder="Full Name">
-                        <input type="email" id="email" placeholder="Email Address">
+                        <div class="input-field field">
+                            <input type="text" placeholder="Full Name" id="name" class="item" autocomplete="off">
+                            <div class="error-txt">Full Name can't be blank</div>
+                        </div>
+                        <div class="input-field field">
+                            <input type="text" placeholder="Email Address" id="email" class="item" autocomplete="off">
+                            <div class="error-txt email">Email Address can't be blank</div>
+                        </div>
                     </div>
                     <div class="input-box">
-                        <input type="number" id="phone" placeholder="Phone Number">
-                        <input type="text" id="subject" placeholder="Email Subject">
+                        <div class="input-field field">
+                            <input type="text" placeholder="Phone Number" id="phone" class="item" autocomplete="off">
+                            <div class="error-txt phone">Phone Number can't be blank</div>
+                        </div>
+                        <div class="input-field field">
+                            <input type="text" placeholder="Email Subject" id="subject" class="item" autocomplete="off">
+                            <div class="error-txt">Email Subject can't be blank</div>
+                        </div>
                     </div>
-                    <textarea name="" id="message" cols="30" rows="5" placeholder="Your Message"></textarea>
-                    <input type="submit" value="Send Message" class="btn">
+                    <div class="textarea-field field">
+                        <textarea name="" id="message" cols="30" rows="5" placeholder="Your Message" class="item"></textarea>
+                        <div class="error-txt">Message can't be blank</div>
+                    </div>
+                    <button type="submit">Send Message</button>
                 </form>
         </section>
         
-
         <div id="popup" class="popup">
             <div class="popup-content">
                 <span class="close" id="closePopup">&times;</span>
