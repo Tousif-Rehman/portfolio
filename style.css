@@ -150,6 +150,7 @@ span
     font-size: 1.6rem;
     text-align: justify;
     padding: 10px;
+    padding-right: 20px;
     padding-left: 0;
 }
 
@@ -495,10 +496,6 @@ span
     text-align: center;
 }
 
-.contact h2 {
-    margin-bottom: 3rem;
-}
-
 .contact form {
     max-width: 70rem;
     margin: 1rem auto;
@@ -530,7 +527,7 @@ form .input-box {
 }
 
 .field .item::placeholder {
-    color: rgba(0, 0, 0, 0.774);
+    color: rgba(0, 0, 0, 0.850);
 }
 
 .field .error-txt {
@@ -608,50 +605,8 @@ form button:hover {
 body {
     color: white;
     background: black;
-}
-
-.bganimation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(30, 1fr);
-    background: #1d1d1d;
-    filter: saturate(2);
-    overflow: hidden;
-    z-index: -1;
-}
-
-.colorbox {
-    z-index: 2;
-    filter: brightness(1.1);
-    transition: 2s ease;
-    position: relative;
-    margin: 2px;
-    background: #1d1d1d;
-}
-
-.backgroundanim {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background: rgb(0, 106, 255);
-    filter: blur(60px);
-    animation: animBack 6s linear infinite;
-}
-
-@keyframes animBack {
-    0% {
-        top: -160px;
-    }
-    100% {
-        top: 120%;
-    }
+    background-image: repeating-radial-gradient(  #0c0a0a 80%,#273c5b 90%,#344652 90%);
+    background-size: 65px 65px;
 }
 
 .popup {
@@ -748,6 +703,10 @@ body {
         font-size: 3.5rem; /* Further scale down the heading size */
     }
 
+    .home-content p {
+        padding-right: 0;
+    }
+
     .home-content h3 {
         font-size: 1.8rem; /* Further scale down the subheading size */
     }
@@ -810,12 +769,20 @@ body {
         font-size: 2rem; /* Scale down the subheading size */
     }
 
+    .home-content p {
+        padding-right: 0;
+    }
+
     .project {
         padding: 0;
     }
 
     .education {
         padding-bottom: 20px;
+    }
+
+    .education .education-row {
+        gap: 0;
     }
 
     .project-container {
@@ -851,6 +818,7 @@ body {
 
     .contact {
         padding-bottom: 0;
+        min-height: 0;
     }
 
 

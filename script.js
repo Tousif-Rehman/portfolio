@@ -3,76 +3,57 @@ const menuIcon = document.querySelector('#menu-icon');
 const navbar = document.querySelector('.navbar');
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('header nav a');
-const bgAnimation = document.getElementById('bganimation');
-const numOfColorBoxes = 600;
 
 // Event Listeners
-menuIcon.onclick = toggleMenu;
-window.onscroll = handleScroll;
-
-document.addEventListener('DOMContentLoaded', () => {
-    handleUserVisit();
-    setupPopupCloseEvents();
-});
-
-// Typed.js Text Animation Initialization
-const typed = new Typed('.multiple-text', {
-    strings: ['Frontend Developer', 'Software Engineer', 'Data Analyst'],
-    typeSpeed: 100,
-    backSpeed: 80,
-    backDelay: 1000,
-    loop: true
-});
-
-// Background Animation for Color Boxes
-for (let i = 0; i < numOfColorBoxes; i++) {
-    const colorBox = document.createElement('div');
-    colorBox.classList.add('colorbox');
-    bgAnimation.append(colorBox);
-}
-
-// Function Definitions
+menuIcon.onclick = toggleMenu; // Toggle menu on click
+window.addEventListener('scroll', handleScroll); // Handle scroll events
 
 // Toggle Menu
 function toggleMenu() {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
+    menuIcon.classList.toggle('bx-x'); // Change menu icon
+    navbar.classList.toggle('active'); // Toggle navbar visibility
 }
 
-// Handle Scroll for Sticky Header and Active Section Highlight
 // Handle Scroll for Sticky Header and Active Section Highlight
 function handleScroll() {
     const top = window.scrollY;
 
     sections.forEach(section => {
-        const offset = section.offsetTop - 150;
+        const offset = section.offsetTop - 150; // Adjust for your layout
         const height = section.offsetHeight;
         const id = section.getAttribute('id');
 
+        // Check if scroll position is within section's bounds
         if (top >= offset && top < offset + height) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                document.querySelector(`header nav a[href*=${id}]`).classList.add('active');
-            });
+            // Remove 'active' class from all nav links
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Add 'active' class to current section's nav link
+            const activeLink = document.querySelector(`header nav a[href="#${id}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
         }
     });
 
+    // Sticky header functionality
     const header = document.querySelector('header');
     header.classList.toggle('sticky', window.scrollY > 100);
-
-    // Remove toggle icon and navbar when scrolling
-    menuIcon.classList.remove('bx-x');
-    navbar.classList.remove('active');
 }
 
-// Add click event listener to nav links
+// Close the mobile navbar when a nav link is clicked
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        menuIcon.classList.remove('bx-x');
-        navbar.classList.remove('active');
+        menuIcon.classList.remove('bx-x'); // Change menu icon back
+        navbar.classList.remove('active'); // Hide navbar
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    handleUserVisit();
+    setupPopupCloseEvents();
+});
 
 // Handle User Visit and Display Popup
 function handleUserVisit() {
@@ -284,4 +265,14 @@ ScrollReveal({
 
 ScrollReveal().reveal('.home-content, .heading, .ed-heading, .pr-heading, .con-heading', { origin: 'top' });
 ScrollReveal().reveal('.home-img, .glowing-circle, .education-box, .project-box, .contact form, .skills-grid', { origin: 'bottom' });
-ScrollReveal().reveal('.home-content h1, .card-box', { origin: 'left' }); 
+ScrollReveal().reveal('.home-content h1, .home-content p, .card-box', { origin: 'left' }); 
+
+
+// Typed.js Text Animation Initialization
+const typed = new Typed('.multiple-text', {
+    strings: ['Frontend Developer', 'Software Engineer', 'Data Analyst'],
+    typeSpeed: 100,
+    backSpeed: 80,
+    backDelay: 1000,
+    loop: true
+});
