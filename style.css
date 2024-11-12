@@ -773,6 +773,10 @@ body {
         padding-right: 0;
     }
 
+    .home-img {
+        padding-top: 12px;
+    }
+
     .project {
         padding: 0;
     }

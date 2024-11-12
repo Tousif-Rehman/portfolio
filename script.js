@@ -270,7 +270,7 @@ ScrollReveal().reveal('.home-content h1, .home-content p, .card-box', { origin: 
 
 // Typed.js Text Animation Initialization
 const typed = new Typed('.multiple-text', {
-    strings: ['Frontend Developer', 'Software Engineer', 'Data Analyst'],
+    strings: ['Frontend Developer','Cybersecurity Analyst', 'Software Engineer', 'Data Analyst'],
     typeSpeed: 100,
     backSpeed: 80,
     backDelay: 1000,
